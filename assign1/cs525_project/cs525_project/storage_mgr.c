@@ -13,7 +13,7 @@
 #include "dberror.h"
 void initStorageManager (void)
 {
-    
+    return ;
 }
 
 
