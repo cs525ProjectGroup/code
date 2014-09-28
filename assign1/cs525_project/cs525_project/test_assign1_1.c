@@ -11,7 +11,7 @@
 char *testName;
 
 /* test output files */
-#define TESTPF "test_pagefile.bin"
+#define TESTPF "//Users//xieyangyang//Desktop//test_pagefile.bin"
 
 /* prototypes for test functions */
 static void testCreateOpenClose(void);
@@ -25,8 +25,8 @@ main (void)
   
   initStorageManager();
 
-  testCreateOpenClose();
-  testSinglePageContent();
+testCreateOpenClose();
+ // testSinglePageContent();
 
   return 0;
 }

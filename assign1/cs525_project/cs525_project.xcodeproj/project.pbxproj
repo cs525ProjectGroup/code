@@ -10,7 +10,6 @@
 		E8B0764319D71D05000A0549 /* dberror.c in Sources */ = {isa = PBXBuildFile; fileRef = E8B0763D19D71D05000A0549 /* dberror.c */; };
 		E8B0764419D71D05000A0549 /* storage_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = E8B0763F19D71D05000A0549 /* storage_mgr.c */; };
 		E8B0764519D71D05000A0549 /* test_assign1_1.c in Sources */ = {isa = PBXBuildFile; fileRef = E8B0764119D71D05000A0549 /* test_assign1_1.c */; };
-		E8B0764819D73ADF000A0549 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = E8B0764619D73ADF000A0549 /* test.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +32,6 @@
 		E8B0764019D71D05000A0549 /* storage_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = storage_mgr.h; sourceTree = "<group>"; };
 		E8B0764119D71D05000A0549 /* test_assign1_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test_assign1_1.c; sourceTree = "<group>"; };
 		E8B0764219D71D05000A0549 /* test_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test_helper.h; sourceTree = "<group>"; };
-		E8B0764619D73ADF000A0549 /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 				E8B0763D19D71D05000A0549 /* dberror.c */,
 				E8B0763E19D71D05000A0549 /* dberror.h */,
 				E8B0763F19D71D05000A0549 /* storage_mgr.c */,
-				E8B0764619D73ADF000A0549 /* test.c */,
 				E8B0764019D71D05000A0549 /* storage_mgr.h */,
 				E8B0764119D71D05000A0549 /* test_assign1_1.c */,
 				E8B0764219D71D05000A0549 /* test_helper.h */,
@@ -136,7 +133,6 @@
 				E8B0764419D71D05000A0549 /* storage_mgr.c in Sources */,
 				E8B0764319D71D05000A0549 /* dberror.c in Sources */,
 				E8B0764519D71D05000A0549 /* test_assign1_1.c in Sources */,
-				E8B0764819D73ADF000A0549 /* test.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

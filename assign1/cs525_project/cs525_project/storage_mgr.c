@@ -87,7 +87,7 @@ RC destroyPageFile (char *fileName){
 */
 RC readBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
-    
+    //nothing
 }
 int getBlockPos (SM_FileHandle *fHandle){
     
@@ -108,7 +108,7 @@ RC readLastBlock (SM_FileHandle *fHandle, SM_PageHandle memPage){
     
 }
 
-/* writing blocks to a page file */
+/* writing blocks to a page file *//*
 RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage){
     
 }
@@ -120,4 +120,4 @@ RC appendEmptyBlock (SM_FileHandle *fHandle){
 }
 RC ensureCapacity (int numberOfPages, SM_FileHandle *fHandle){
     
-}
+}*/
