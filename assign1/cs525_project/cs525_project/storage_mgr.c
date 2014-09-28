@@ -41,7 +41,8 @@ RC createPageFile (char *fileName)
 RC openPageFile (char *fileName, SM_FileHandle *fHandle)
 {
     FILE *pf=NULL;
-    int len;
+    long len;
+    long tailPointer = -1;
     pf=fopen(fileName, "rb");
     int returnV;
     if(pf==NULL)
@@ -49,26 +50,41 @@ RC openPageFile (char *fileName, SM_FileHandle *fHandle)
     else
     {
         fseek(pf,0L,SEEK_END);// figure out the tail position of the file, and let fp points to this position.
-        len=ftell(pf)+1; //length from the tail to the header of the page file = bytes of the page file.
-        fHandle ->fileName = fileName;
-        fHandle ->totalNumPages = len/PAGE_SIZE;
-        fHandle ->curPagePos =0;
-        fHandle ->mgmtInfo = pf;
-        returnV=RC_OK;
+        tailPointer = ftell(pf);
+        if(tailPointer == -1)           // if fail to fetch the current pointer's position, return failed.
+            returnV = RC_FILE_HANDLE_NOT_INIT;
+        else{
+            len=tailPointer+1; //length from the tail to the header of the page file = bytes of the page file.
+            fHandle ->fileName = fileName;          //initialize the file handle.
+            fHandle ->totalNumPages = len/PAGE_SIZE;
+            fHandle ->curPagePos =0;
+            fHandle ->mgmtInfo = pf;
+            returnV=RC_OK; //return succeed to initialize the file handler
+        }
     }
-    
+    return returnV;
 
 }
 /*Close an open page file or destroy (delete) a page file.*/
 RC closePageFile (SM_FileHandle *fHandle)
 {
-    
+    if(fclose(fHandle->mgmtInfo)==EOF) //if could not find the file ,return error.
+        return RC_FILE_NOT_FOUND;
+    else
+        return RC_OK;
 }
 RC destroyPageFile (char *fileName){
+    if(remove(fileName)!=0 )
+        return RC_FILE_NOT_FOUND;
+    else
+        return RC_OK;
     
 }
 
 /* reading blocks from disc */
+
+/*The method reads the pageNumth block from a file and stores its content in the memory pointed to by the memPage page handle. If the file has less than pageNum pages, the method should return RC_READ_NON_EXISTING_PAGE.
+*/
 RC readBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
     
