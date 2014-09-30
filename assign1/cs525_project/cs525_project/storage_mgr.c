@@ -33,8 +33,6 @@ RC createPageFile (char *fileName)
     free(buff);                                 //release the space.
     fclose(pf);                                 //close the file.
     return returnV;
-    
-    
 }
 
 /*Opens an existing page file. Should return RC_FILE_NOT_FOUND if the file does not exist. The second parameter is an existing file handle. If opening the file is successful, then the fields of this file handle should be initialized with the information about the opened file. For instance, you would have to read the total number of pages that are stored in the file from disk.
