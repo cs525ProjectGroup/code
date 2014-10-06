@@ -25,7 +25,7 @@ RC createPageFile (char *fileName)
                                                 //allocate one page space with the initial value '\0'
     pf = fopen(fileName,"wb");                  //create the file.
     int returnV = -1;
-        if(fwrite(buff, sizeof(char), PAGE_SIZE, pf)==0)
+    if(fwrite(buff, sizeof(char), PAGE_SIZE, pf)==0)
                                                 //write the block of content into the file. If could not write into the file return WRITE_FAILED ERROR.
             returnV=RC_WRITE_FAILED;
         else
@@ -93,7 +93,8 @@ RC readBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
         return RC_FILE_NOT_FOUND;
     fseek(fHandle->mgmtInfo,PAGE_SIZE*pageNum*sizeof(char),SEEK_SET);
                                                 //set the pointer's value to be the start of the pageNumth's block.
-    fread(memPage, sizeof(char),PAGE_SIZE,fHandle->mgmtInfo);
+   int a= fread(memPage, sizeof(char),PAGE_SIZE,fHandle->mgmtInfo);
+    printf("%d",a);
                                                 //read this block's content and store them to the mempage.
     fHandle->curPagePos=pageNum;                //save the current page position
     return RC_OK;
