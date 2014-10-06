@@ -51,7 +51,7 @@ RC openPageFile (char *fileName, SM_FileHandle *fHandle)
         fseek(pf,0L,SEEK_END);                  // figure out the tail's position of the file, and let fp q             points to this position.
         tailPointer = ftell(pf);                //offset of the tail of the file.
         if(tailPointer == -1)                   // if failed to fetch the offset, return failed.
-            returnV = RC_FILE_HANDLE_NOT_INIT;
+            returnV = RC_GET_NUMBER_OF_BYTES_FAILED;
         else{
             len=tailPointer+1;                  //length from the tail to the head of the page file = bytes of the page file.
             fHandle ->fileName = fileName;      //assign the fHandle's attributions.
@@ -88,13 +88,16 @@ RC readBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
     if(pageNum<0||(fHandle->totalNumPages)<=pageNum)
                                                 //if pageNum is not in the scope of the available pages return NOT_FOUND ERROR.
-       return RC_READ_NON_EXISTING_PAGE;
+       return RC_PAGE_NUMBER_OUT_OF_BOUNDRY;
     if(fHandle->mgmtInfo==NULL)                 //if no such a pointer existing return NOT FOUND.
         return RC_FILE_NOT_FOUND;
-    fseek(fHandle->mgmtInfo,PAGE_SIZE*pageNum*sizeof(char),SEEK_SET);
+    if(fseek(fHandle->mgmtInfo,PAGE_SIZE*pageNum*sizeof(char),SEEK_SET)!=0)
+        return RC_SET_POINTER_FAILED;
                                                 //set the pointer's value to be the start of the pageNumth's block.
-   int a= fread(memPage, sizeof(char),PAGE_SIZE,fHandle->mgmtInfo);
-    printf("%d",a);
+   int size= fread(memPage, sizeof(char),PAGE_SIZE,fHandle->mgmtInfo);
+    if(size!=PAGE_SIZE)
+        return RC_READ_FAILED;
+        
                                                 //read this block's content and store them to the mempage.
     fHandle->curPagePos=pageNum;                //save the current page position
     return RC_OK;
@@ -134,10 +137,11 @@ RC readLastBlock (SM_FileHandle *fHandle, SM_PageHandle memPage){
 RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage){
     if(fHandle->totalNumPages<=pageNum||pageNum<0)
                                                 // if pageNum is not in the scope of the available pages return NOT_FOUND ERROR.
-        return RC_READ_NON_EXISTING_PAGE;
+        return RC_PAGE_NUMBER_OUT_OF_BOUNDRY;
     if(fHandle->mgmtInfo==NULL)                 //if no such a pointer exists. return NOT FOUND.
         return RC_FILE_NOT_FOUND;
-    fseek(fHandle->mgmtInfo,PAGE_SIZE*pageNum*sizeof(char),SEEK_SET);
+    if(fseek(fHandle->mgmtInfo,PAGE_SIZE*pageNum*sizeof(char),SEEK_SET)!=0)
+        return RC_SET_POINTER_FAILED;
                                                 //set the pointer's value to be the start of the pageNumth's block.
     if (fwrite(memPage, sizeof(char), PAGE_SIZE, fHandle->mgmtInfo)!=PAGE_SIZE)
         return RC_WRITE_FAILED;                 //if failed to write the block return WRITE_FAILED.
