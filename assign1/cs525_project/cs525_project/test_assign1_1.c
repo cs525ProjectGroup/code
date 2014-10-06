@@ -11,7 +11,7 @@
 char *testName;
 
 /* test output files */
-#define TESTPF "Dtest_pagefile.bin"
+#define TESTPF "test_pagefile.bin"
 
 /* prototypes for test functions */
 static void testCreateOpenClose(void);
