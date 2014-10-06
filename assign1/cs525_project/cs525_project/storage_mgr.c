@@ -2,7 +2,7 @@
 //  storage_mgr.c
 //  
 //
-//  Created by xieyangyang on 9/24/14.
+//  Created by Yangyang Xie, Yuzhang Hu, Qingyuan Wen on 9/24/14.
 //
 //
 #include <stdio.h>
