@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E89A24C419F96B53008C2993 /* buffer_mgr_stat.c in Sources */ = {isa = PBXBuildFile; fileRef = E89A24BA19F96B53008C2993 /* buffer_mgr_stat.c */; };
 		E89A24C519F96B53008C2993 /* dberror.c in Sources */ = {isa = PBXBuildFile; fileRef = E89A24BD19F96B53008C2993 /* dberror.c */; };
-		E89A24C619F96B53008C2993 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = E89A24C019F96B53008C2993 /* main.c */; };
 		E89A24C719F96B53008C2993 /* test_assign2_1.c in Sources */ = {isa = PBXBuildFile; fileRef = E89A24C219F96B53008C2993 /* test_assign2_1.c */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		E89A24BC19F96B53008C2993 /* buffer_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer_mgr.h; sourceTree = "<group>"; };
 		E89A24BD19F96B53008C2993 /* dberror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dberror.c; sourceTree = "<group>"; };
 		E89A24BF19F96B53008C2993 /* dt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dt.h; sourceTree = "<group>"; };
-		E89A24C019F96B53008C2993 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		E89A24C119F96B53008C2993 /* storage_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = storage_mgr.h; sourceTree = "<group>"; };
 		E89A24C219F96B53008C2993 /* test_assign2_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test_assign2_1.c; sourceTree = "<group>"; };
 		E89A24C319F96B53008C2993 /* test_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test_helper.h; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				E89A24BD19F96B53008C2993 /* dberror.c */,
 				E89A24C819F96BA7008C2993 /* dberror.h */,
 				E89A24BF19F96B53008C2993 /* dt.h */,
-				E89A24C019F96B53008C2993 /* main.c */,
 				E89A24C119F96B53008C2993 /* storage_mgr.h */,
 				E89A24C219F96B53008C2993 /* test_assign2_1.c */,
 				E89A24C319F96B53008C2993 /* test_helper.h */,
@@ -141,7 +138,6 @@
 			files = (
 				E89A24C519F96B53008C2993 /* dberror.c in Sources */,
 				E89A24C419F96B53008C2993 /* buffer_mgr_stat.c in Sources */,
-				E89A24C619F96B53008C2993 /* main.c in Sources */,
 				E89A24C719F96B53008C2993 /* test_assign2_1.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
