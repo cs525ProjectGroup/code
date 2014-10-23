@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>assign2.xcscheme</key>
+		<key>cs525_project.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E89A24AF19F96B00008C2993</key>
+		<key>E80BE53319D37D8800549808</key>
 		<dict>
 			<key>primary</key>
 			<true/>
