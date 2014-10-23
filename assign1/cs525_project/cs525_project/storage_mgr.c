@@ -21,7 +21,7 @@ void initStorageManager (void)
 //This method should fill this single page with '\0' bytes.
 RC createPageFile (char *fileName)
 {
-    FILE *pf;
+    FILE *pf=NULL;
     char* buff = (char*)calloc(PAGE_SIZE,sizeof(char));
     pf = fopen(fileName,"wb");
     if(pf==NULL)
@@ -39,7 +39,11 @@ RC createPageFile (char *fileName)
  */
 RC openPageFile (char *fileName, SM_FileHandle *fHandle)
 {
-    
+    FILE *pf=NULL;
+    pf=fopen(fileName,"r");
+    if(pf==NULL)
+        return RC_FILE_NOT_FOUND;
+    fHandle=(
 }
 RC closePageFile (SM_FileHandle *fHandle)
 {
