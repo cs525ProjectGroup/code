@@ -58,7 +58,7 @@ testCreatingAndReadingDummyPages (void)
   BM_BufferPool *bm = MAKE_POOL();
   testName = "Creating and Reading Back Dummy Pages";
 
-  CHECK(createPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
+  CHECK(createPageFile("testbuffer.bin"));
 
   createDummyPages(bm, 22);
   checkDummyPages(bm, 20);
@@ -66,7 +66,7 @@ testCreatingAndReadingDummyPages (void)
   createDummyPages(bm, 10000);
   checkDummyPages(bm, 10000);
 
-  CHECK(destroyPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
+  CHECK(destroyPageFile("testbuffer.bin"));
 
   free(bm);
   TEST_DONE();
@@ -79,7 +79,7 @@ createDummyPages(BM_BufferPool *bm, int num)
   int i;
   BM_PageHandle *h = MAKE_PAGE_HANDLE();
 
-  CHECK(initBufferPool(bm, "//Users//xieyangyang//Desktop//testbuffer.bin", 3, RS_FIFO, NULL));
+  CHECK(initBufferPool(bm, "testbuffer.bin", 3, RS_FIFO, NULL));
   
   for (i = 0; i < num; i++)
     {
@@ -101,7 +101,7 @@ checkDummyPages(BM_BufferPool *bm, int num)
   BM_PageHandle *h = MAKE_PAGE_HANDLE();
   char *expected = malloc(sizeof(char) * 512);
 
-  CHECK(initBufferPool(bm, "//Users//xieyangyang//Desktop//testbuffer.bin", 3, RS_FIFO, NULL));
+  CHECK(initBufferPool(bm, "testbuffer.bin", 3, RS_FIFO, NULL));
 
   for (i = 0; i < num; i++)
     {
@@ -126,8 +126,8 @@ testReadPage ()
   BM_PageHandle *h = MAKE_PAGE_HANDLE();
   testName = "Reading a page";
 
-  CHECK(createPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
-  CHECK(initBufferPool(bm, "//Users//xieyangyang//Desktop//testbuffer.bin", 3, RS_FIFO, NULL));
+  CHECK(createPageFile("testbuffer.bin"));
+  CHECK(initBufferPool(bm, "testbuffer.bin", 3, RS_FIFO, NULL));
   
   CHECK(pinPage(bm, h, 0));
   CHECK(pinPage(bm, h, 0));
@@ -140,7 +140,7 @@ testReadPage ()
   CHECK(forcePage(bm, h));
 
   CHECK(shutdownBufferPool(bm));
-  CHECK(destroyPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
+  CHECK(destroyPageFile("testbuffer.bin"));
 
   free(bm);
   free(h);
@@ -174,11 +174,11 @@ testFIFO ()
   BM_PageHandle *h = MAKE_PAGE_HANDLE();
   testName = "Testing FIFO page replacement";
 
-  CHECK(createPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
+  CHECK(createPageFile("testbuffer.bin"));
 
   createDummyPages(bm, 100);
 
-  CHECK(initBufferPool(bm, "//Users//xieyangyang//Desktop//testbuffer.bin", 3, RS_FIFO, NULL));
+  CHECK(initBufferPool(bm, "testbuffer.bin", 3, RS_FIFO, NULL));
 
   // reading some pages linearly with direct unpin and no modifications
   for(i = 0; i < numLinRequests; i++)
@@ -217,7 +217,7 @@ testFIFO ()
   ASSERT_EQUALS_INT(8, getNumReadIO(bm), "check number of read I/Os");
 
   CHECK(shutdownBufferPool(bm));
-  CHECK(destroyPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
+  CHECK(destroyPageFile("testbuffer.bin"));
 
   free(bm);
   free(h);
@@ -258,9 +258,9 @@ testLRU (void)
   BM_PageHandle *h = MAKE_PAGE_HANDLE();
   testName = "Testing LRU page replacement";
 
-  CHECK(createPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
+  CHECK(createPageFile("testbuffer.bin"));
   createDummyPages(bm, 100);
-  CHECK(initBufferPool(bm, "//Users//xieyangyang//Desktop//testbuffer.bin", 5, RS_LRU, NULL));
+  CHECK(initBufferPool(bm, "testbuffer.bin", 5, RS_LRU, NULL));
 
   // reading first five pages linearly with direct unpin and no modifications
   for(i = 0; i < 5; i++)
@@ -291,7 +291,7 @@ testLRU (void)
   ASSERT_EQUALS_INT(10, getNumReadIO(bm), "check number of read I/Os");
 
   CHECK(shutdownBufferPool(bm));
-  CHECK(destroyPageFile("//Users//xieyangyang//Desktop//testbuffer.bin"));
+  CHECK(destroyPageFile("testbuffer.bin"));
 
   free(bm);
   free(h);
