@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "testCreateOpenClose:test_assign1_1.c">
+      </ContextState>
+      <ContextState
+         contextName = "writeBlock:storage_mgr.c">
+      </ContextState>
+      <ContextState
+         contextName = "testSinglePageContent:test_assign1_1.c">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
