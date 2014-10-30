@@ -86,9 +86,8 @@ RC destroyPageFile (char *fileName){
 */
 RC readBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
-    if(pageNum<0||(fHandle->totalNumPages)<=pageNum)
-                                                //if pageNum is not in the scope of the available pages return NOT_FOUND ERROR.
-       return RC_PAGE_NUMBER_OUT_OF_BOUNDRY;
+    if((fHandle->totalNumPages)<=pageNum)
+        return  RC_PAGE_NUMBER_OUT_OF_BOUNDRY;         //if pageNum is not in the scope of the available pages return NOT_FOUND ERROR.
     if(fHandle->mgmtInfo==NULL)                 //if no such a pointer existing return NOT FOUND.
         return RC_FILE_NOT_FOUND;
     if(fseek(fHandle->mgmtInfo,PAGE_SIZE*pageNum*sizeof(char),SEEK_SET)!=0)
@@ -135,9 +134,9 @@ RC readLastBlock (SM_FileHandle *fHandle, SM_PageHandle memPage){
 /* writing blocks to a page file */
 /*Write a page to disk using either the current position or an absolute position.*/
 RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage){
-    if(fHandle->totalNumPages<=pageNum||pageNum<0)
+     while((fHandle->totalNumPages)<=pageNum)
+         appendEmptyBlock (fHandle);
                                                 // if pageNum is not in the scope of the available pages return NOT_FOUND ERROR.
-        return RC_PAGE_NUMBER_OUT_OF_BOUNDRY;
     if(fHandle->mgmtInfo==NULL)                 //if no such a pointer exists. return NOT FOUND.
         return RC_FILE_NOT_FOUND;
     if(fseek(fHandle->mgmtInfo,PAGE_SIZE*pageNum*sizeof(char),SEEK_SET)!=0)
@@ -169,7 +168,6 @@ RC appendEmptyBlock (SM_FileHandle *fHandle){
         returnV = RC_OK;
     }
     free(buff);
-    fclose(pf);
     return returnV;
 }
 
