@@ -10,6 +10,8 @@
 		E89A24C419F96B53008C2993 /* buffer_mgr_stat.c in Sources */ = {isa = PBXBuildFile; fileRef = E89A24BA19F96B53008C2993 /* buffer_mgr_stat.c */; };
 		E89A24C519F96B53008C2993 /* dberror.c in Sources */ = {isa = PBXBuildFile; fileRef = E89A24BD19F96B53008C2993 /* dberror.c */; };
 		E89A24C719F96B53008C2993 /* test_assign2_1.c in Sources */ = {isa = PBXBuildFile; fileRef = E89A24C219F96B53008C2993 /* test_assign2_1.c */; };
+		E89C3CEB19FAC402007FCA03 /* storage_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = E89C3CEA19FAC402007FCA03 /* storage_mgr.c */; };
+		E89C3CED19FAC427007FCA03 /* buffer_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = E89C3CEC19FAC427007FCA03 /* buffer_mgr.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +37,8 @@
 		E89A24C219F96B53008C2993 /* test_assign2_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test_assign2_1.c; sourceTree = "<group>"; };
 		E89A24C319F96B53008C2993 /* test_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test_helper.h; sourceTree = "<group>"; };
 		E89A24C819F96BA7008C2993 /* dberror.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dberror.h; sourceTree = "<group>"; };
+		E89C3CEA19FAC402007FCA03 /* storage_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = storage_mgr.c; sourceTree = "<group>"; };
+		E89C3CEC19FAC427007FCA03 /* buffer_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer_mgr.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +74,10 @@
 				E89A24BA19F96B53008C2993 /* buffer_mgr_stat.c */,
 				E89A24BB19F96B53008C2993 /* buffer_mgr_stat.h */,
 				E89A24BC19F96B53008C2993 /* buffer_mgr.h */,
+				E89C3CEC19FAC427007FCA03 /* buffer_mgr.c */,
 				E89A24BD19F96B53008C2993 /* dberror.c */,
 				E89A24C819F96BA7008C2993 /* dberror.h */,
+				E89C3CEA19FAC402007FCA03 /* storage_mgr.c */,
 				E89A24BF19F96B53008C2993 /* dt.h */,
 				E89A24C119F96B53008C2993 /* storage_mgr.h */,
 				E89A24C219F96B53008C2993 /* test_assign2_1.c */,
@@ -136,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E89C3CEB19FAC402007FCA03 /* storage_mgr.c in Sources */,
 				E89A24C519F96B53008C2993 /* dberror.c in Sources */,
+				E89C3CED19FAC427007FCA03 /* buffer_mgr.c in Sources */,
 				E89A24C419F96B53008C2993 /* buffer_mgr_stat.c in Sources */,
 				E89A24C719F96B53008C2993 /* test_assign2_1.c in Sources */,
 			);

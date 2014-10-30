@@ -32,10 +32,6 @@ typedef int RC;
 #define RC_IM_N_TO_LAGE 302
 #define RC_IM_NO_MORE_ENTRIES 303
 
-#define RC_UNPIN_ERROR 401
-#define RC_NO_FREE_BUFFER_ERROR  402
-#define RC_NO_SUCH_PAGE_IN_BUFF  403
-
 /* holder for error messages */
 extern char *RC_message;
 
