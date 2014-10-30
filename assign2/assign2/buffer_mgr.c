@@ -49,10 +49,11 @@ void initializeQueue(queue *g_queue,BM_BufferPool *const bm){
         newNode[i]->data=bm->mgmtData+PAGE_SIZE*(i);
         newNode[i]->dirty=0;
         newNode[i]->fixCount=0;
+        newNode[i]->PageNum=-1;
         if(i==bm->numPages-1)
             newNode[i]->next=NULL;
         else newNode[i]->next=newNode[i+1];
-        newNode[i]->PageNum=-1;
+
         bufferInfo[i]=newNode[i];
     }
         g_queue->front=newNode[0];
@@ -86,6 +87,23 @@ BufferPageNode *searchBuffPage(BM_BufferPool *const bm, BM_PageHandle *const pag
  *                    FIFO Strategy                         *
  ************************************************************/
 RC pinPage_FIFO (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNumber pageNum){
+    BufferPageNode *temp;
+    temp=g_queue->front;
+    int find =0;
+    if(temp->PageNum==(int)pageNum&&!isEmpty(g_queue))
+        find=1;
+    for (int i = 1 ;i<bm->numPages&&find==0;i++)
+    {
+        temp=temp->next;
+        if(temp->PageNum==pageNum)
+            find=1;
+    }
+    if(find==1)
+    {
+        temp->fixCount++;
+        page->data=temp->data;
+        return RC_OK;
+    }
     BufferPageNode *newNode=(BufferPageNode *) malloc (sizeof(BufferPageNode));
     page->pageNum=pageNum;
     int count=bm->numPages;
@@ -103,7 +121,7 @@ RC pinPage_FIFO (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNu
             if(count <=0)
                 return RC_NO_FREE_BUFFER_ERROR;             //if all the buff is occupied, return the error
             tempPtr_pre=tempPtr;
-            tempPtr=tempPtr_pre->next;
+            tempPtr=tempPtr->next;
             count--;
         }
     if(tempPtr==g_queue->front)                         //if the first page in the buff is free(fixCount==0)
@@ -122,7 +140,7 @@ RC pinPage_FIFO (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNu
         }
     newNode->frameNum=tempPtr->frameNum;
     free(tempPtr);                                      // free the node.
-        g_queue->queueSize= g_queue->queueSize-1;           //decrease the size of queue by one
+    g_queue->queueSize= g_queue->queueSize-1;           //decrease the size of queue by one
  
     
     // add the new page to the buffer(the rear of the queue)
@@ -130,10 +148,7 @@ RC pinPage_FIFO (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNu
     page->data=newNode->data;
     
     countRead++;
-    if(isEmpty(g_queue))
-        g_queue->front=newNode;
-    else
-        g_queue->rear->next=newNode;
+    g_queue->rear->next=newNode;
     g_queue->rear=newNode;
     bufferInfo[newNode->frameNum]=newNode;
     g_queue->queueSize= g_queue->queueSize+1;
@@ -143,6 +158,54 @@ RC pinPage_FIFO (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNu
 }
 
 
+
+/************************************************************
+ *                    LRU  Strategy                         *
+ ************************************************************/
+RC pinPage_LRU (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNumber pageNum){
+    BufferPageNode *temp;
+    BufferPageNode *temp_pre;
+        BufferPageNode *temp1;
+        BufferPageNode *temp_pre1;
+    temp_pre=g_queue->front;
+    temp=g_queue->front;
+    temp_pre1=g_queue->front;
+    temp1=g_queue->front;
+    int find =0;
+    if(temp->PageNum==(int)pageNum&&!isEmpty(g_queue))
+        find=1;
+    for (int i = 1 ;i<g_queue->queueSize&&find==0;i++)
+    {
+        temp_pre=temp;
+        temp=temp->next;
+        if(temp->PageNum==pageNum)
+            find=1;
+    }
+    if(find==1)
+    {
+        temp->fixCount++;
+        page->data=temp->data;
+        if(temp==g_queue->front)
+        {
+            g_queue->front=temp->next;
+            g_queue->rear->next=temp;
+            g_queue->rear=temp;
+        }
+        else
+        {
+            temp_pre->next=temp->next;
+            if(temp==g_queue->rear)
+                g_queue->rear=temp_pre;
+            g_queue->rear->next=temp;
+            g_queue->rear=temp;
+        }
+        temp->next=NULL;
+        bufferInfo[temp->frameNum]=temp;
+        return RC_OK;
+    }
+    else
+        return pinPage_FIFO(bm,page,pageNum);
+}
 
 
 //inistialize the buffer pool
@@ -200,7 +263,6 @@ RC markDirty (BM_BufferPool *const bm, BM_PageHandle *const page){
     temp=searchBuffPage(bm,page);
     if(temp==NULL)
         return RC_NO_SUCH_PAGE_IN_BUFF;
-    temp->data=page->data;
     temp->dirty=1;
     return RC_OK;
 }
@@ -231,28 +293,12 @@ RC forcePage (BM_BufferPool *const bm, BM_PageHandle *const page){
     return RC_OK;
 }
 RC pinPage (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNumber pageNum){
-    BufferPageNode *temp;
-    temp=g_queue->front;
-    int find =0;
-    if(temp->PageNum==(int)pageNum&&!isEmpty(g_queue))
-        find=1;
-    for (int i = 1 ;i<g_queue->queueSize&&find==0;i++)
-    {
-        temp=temp->next;
-        if(temp->PageNum==pageNum)
-            find=1;
-    }
-    if(find==1)
-    {
-        temp->fixCount++;
-        page->data=temp->data;
-    }
-    else
-    {
-        if(bm->strategy==0)
-            pinPage_FIFO(bm,page,pageNum);
-    }
-    return RC_OK;
+    page->pageNum=pageNum;
+    if(bm->strategy==0)
+            return pinPage_FIFO(bm,page,pageNum);
+    else //if(bm->strategy==1)
+            return pinPage_LRU(bm,page,pageNum);
+
 }
 
 
