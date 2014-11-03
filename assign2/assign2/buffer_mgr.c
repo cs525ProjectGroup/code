@@ -2,8 +2,7 @@
 //  buffer_mgr.c
 //  assign2
 //
-//  Created by xieyangyang on 10/24/14.
-//  Copyright (c) 2014 xieyangyang. All rights reserved.
+//  Created by Yangyang Xie, Yuzhang Hu, Qingyuan Wen on 10/24/14.
 //
 
 #include "buffer_mgr.h"
