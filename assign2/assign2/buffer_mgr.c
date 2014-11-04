@@ -12,9 +12,6 @@
 #include "storage_mgr.h"
 #include <string.h>
 
-
-
-
 typedef struct BufferPageNode{
     int frameNum;
     int PageNum;
@@ -25,14 +22,14 @@ typedef struct BufferPageNode{
 } BufferPageNode;
 
 
-typedef struct queue{
+typedef struct queue{   //create a queue struct for strategy using
     struct BufferPageNode *front;
     struct BufferPageNode *rear;
     int queueSize;
 } queue;
 
 
-SM_FileHandle *fh;
+SM_FileHandle *fh;  //initial several variables
 char *memPage;
 BufferPageNode *bufferInfo[100];
 queue *g_queue ;
@@ -43,7 +40,7 @@ void initializeQueue(queue *g_queue,BM_BufferPool *const bm){
     BufferPageNode *newNode[bm->numPages];
     for(int i=bm->numPages-1;i>=0;i--)
     {
-        newNode[i]=(BufferPageNode *) malloc (sizeof(BufferPageNode));
+        newNode[i]=(BufferPageNode *) malloc (sizeof(BufferPageNode));  //initialize every page with an array
         newNode[i]->frameNum=i;
         newNode[i]->data=bm->mgmtData+PAGE_SIZE*(i);
         newNode[i]->dirty=0;
@@ -60,11 +57,12 @@ void initializeQueue(queue *g_queue,BM_BufferPool *const bm){
         g_queue->queueSize=bm->numPages;
     }
 
-int isEmpty(struct queue *q)
+int isEmpty(struct queue *q)    //check if the page is empty
 {
     return q->queueSize ==0 ;
 }
 
+//a method used to search a specific page
 BufferPageNode *searchBuffPage(BM_BufferPool *const bm, BM_PageHandle *const page)
 {
     BufferPageNode *temp;
@@ -88,7 +86,7 @@ BufferPageNode *searchBuffPage(BM_BufferPool *const bm, BM_PageHandle *const pag
 RC pinPage_FIFO (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNumber pageNum){
     BufferPageNode *temp;
     temp=g_queue->front;
-    int find =0;
+    int find =0;    //set a flag to test if the given page is located in the buffer
     if(temp->PageNum==(int)pageNum&&!isEmpty(g_queue))
         find=1;
     for (int i = 1 ;i<bm->numPages&&find==0;i++)
@@ -150,7 +148,7 @@ RC pinPage_FIFO (BM_BufferPool *const bm, BM_PageHandle *const page,const PageNu
     g_queue->rear->next=newNode;
     g_queue->rear=newNode;
     bufferInfo[newNode->frameNum]=newNode;
-    g_queue->queueSize= g_queue->queueSize+1;
+    g_queue->queueSize= g_queue->queueSize+1;           //increase the size of queue by one
 
 
     return RC_OK;
@@ -225,25 +223,25 @@ RC initBufferPool(BM_BufferPool *const bm, const char *const pageFileName,const 
 }
 
 RC shutdownBufferPool(BM_BufferPool *const bm){
-    forceFlushPool(bm);
+    forceFlushPool(bm);         //store data into memory
     free(bm->mgmtData);
     closePageFile(fh);
     return RC_OK;
     
 }
-RC forceFlushPool(BM_BufferPool *const bm){
 
+RC forceFlushPool(BM_BufferPool *const bm){     //function used to store data into memory
     BufferPageNode *tem;
     int result;
     tem=g_queue->front;
-    while (tem!=NULL)
+    while (tem!=NULL) //loop to check dirty files
     {
         result=-1;
-        if(tem->dirty==1)
+        if(tem->dirty==1)   //check file if it is dirty
         {
         result=writeBlock(tem->PageNum,fh, tem->data);
         countWrite++;
-        tem->dirty=0;
+        tem->dirty=0;   //after storing set the dirty flag into 0
         if (result!=0)
             {
                 closePageFile(fh);
@@ -272,7 +270,7 @@ RC unpinPage (BM_BufferPool *const bm, BM_PageHandle *const page){
     if(temp==NULL)
         return RC_NO_SUCH_PAGE_IN_BUFF;
     temp->fixCount--;
-    if(*(temp->data)==*(page->data))
+    if(*(temp->data)==*(page->data))    //additional check for data consistence
         return RC_OK;
     return RC_UNPIN_ERROR;
 }
@@ -315,7 +313,7 @@ PageNumber *getFrameContents (BM_BufferPool *const bm){
     
     
 }
-bool *getDirtyFlags (BM_BufferPool *const bm){
+bool *getDirtyFlags (BM_BufferPool *const bm){      //return the dirty flag of current page
     bool (*arr1)[bm->numPages];
     arr1=calloc(bm->numPages,sizeof(PageNumber));
     for (int i =g_queue->queueSize-1;i>=0;i--)
@@ -327,7 +325,7 @@ bool *getDirtyFlags (BM_BufferPool *const bm){
     }
     return *arr1;
 }
-int *getFixCounts (BM_BufferPool *const bm){
+int *getFixCounts (BM_BufferPool *const bm){    //return the fix number of the page
     int (*arr2)[bm->numPages];
     arr2=calloc(bm->numPages,sizeof(PageNumber));
 
