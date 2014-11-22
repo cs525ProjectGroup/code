@@ -14,6 +14,11 @@ typedef int RC;
 #define RC_FILE_HANDLE_NOT_INIT 2
 #define RC_WRITE_FAILED 3
 #define RC_READ_NON_EXISTING_PAGE 4
+#define RC_READ_FAILED 5
+#define RC_PAGE_NUMBER_OUT_OF_BOUNDRY 6
+
+#define RC_SET_POINTER_FAILED 100
+#define RC_GET_NUMBER_OF_BYTES_FAILED 101
 
 #define RC_RM_COMPARE_VALUE_OF_DIFFERENT_DATATYPE 200
 #define RC_RM_EXPR_RESULT_IS_NOT_BOOLEAN 201
@@ -26,6 +31,10 @@ typedef int RC;
 #define RC_IM_KEY_ALREADY_EXISTS 301
 #define RC_IM_N_TO_LAGE 302
 #define RC_IM_NO_MORE_ENTRIES 303
+
+#define RC_UNPIN_ERROR 401
+#define RC_NO_FREE_BUFFER_ERROR  402
+#define RC_NO_SUCH_PAGE_IN_BUFF  403
 
 /* holder for error messages */
 extern char *RC_message;

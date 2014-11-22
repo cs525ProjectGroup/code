@@ -7,13 +7,23 @@
 //
 
 #include "record_mgr.h"
+#include "tables.h"
+#include "buffer_mgr.h"
+#include "storage_mgr.h"
 // table and manager
 RC initRecordManager (void *mgmtData){
-    
+    return RC_OK;
 }
 RC shutdownRecordManager (){
+    return RC_OK;
 }
+
+//Creating a table should create the underlying page file and store information about the schema, free-space, ... and so on in the Table Information pages
 RC createTable (char *name, Schema *schema){
+    createPageFile(name);
+    
+
+    
 }
 RC openTable (RM_TableData *rel, char *name){
 }
@@ -45,7 +55,17 @@ RC closeScan (RM_ScanHandle *scan){
 // dealing with schemas
 int getRecordSize (Schema *schema){
 }
+
+//creat the schema. the struct of schema is denfined in tables.h
 Schema *createSchema (int numAttr, char **attrNames, DataType *dataTypes, int *typeLength, int keySize, int *keys){
+    Schema *newSchame;
+    newSchame->numAttr=numAttr;
+    newSchame->attrNames=attrNames;
+    newSchame->dataTypes=dataTypes;
+    newSchame->typeLength=typeLength;
+    newSchame->keyAttrs=keys;
+    newSchame->keySize=keySize;
+    return  newSchame;
 }
 RC freeSchema (Schema *schema){
 }

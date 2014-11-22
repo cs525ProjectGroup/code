@@ -78,12 +78,12 @@ main (void)
   testName = "";
 
   testInsertManyRecords();
-  testRecords();
-  testCreateTableAndInsert();
-  testUpdateTable();
-  testScans();
-  testScansTwo();
-  testMultipleScans();
+# testRecords();                                \
+  testCreateTableAndInsert();                   \
+  testUpdateTable();                            \
+  testScans();                                  \
+  testScansTwo();                               \
+  testMultipleScans();                          \
 
   return 0;
 }
