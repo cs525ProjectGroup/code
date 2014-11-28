@@ -5,7 +5,8 @@
 //  Created by xieyangyang on 11/21/14.
 //  Copyright (c) 2014 xieyangyang. All rights reserved.
 //
-
+#include <stdio.h>
+#include <stdlib.h>
 #include "record_mgr.h"
 #include "tables.h"
 #include "buffer_mgr.h"
@@ -21,39 +22,59 @@ RC shutdownRecordManager (){
 //Creating a table should create the underlying page file and store information about the schema, free-space, ... and so on in the Table Information pages
 RC createTable (char *name, Schema *schema){
     createPageFile(name);
+    SM_FileHandle fh;
+    openPageFile(name, &fh);
+    SM_PageHandle space;
+    if(memcpy(&space,&schema,sizeof(Schema))==0)
+        return RC_WRITE_FAILED;
+    writeCurrentBlock(&fh,space);
+    return RC_OK;
+    
     
 
     
 }
 RC openTable (RM_TableData *rel, char *name){
+    return RC_OK;
 }
 RC closeTable (RM_TableData *rel){
+    return RC_OK;
 }
 RC deleteTable (char *name){
+    return RC_OK;
 }
 int getNumTuples (RM_TableData *rel){
+    return  0;
 }
 
 // handling records in a table
 RC insertRecord (RM_TableData *rel, Record *record){
+    return RC_OK;
 }
 RC deleteRecord (RM_TableData *rel, RID id){
+    return RC_OK;
 }
 RC updateRecord (RM_TableData *rel, Record *record){
+    return RC_OK;
 }
 RC getRecord (RM_TableData *rel, RID id, Record *record){
+    return RC_OK;
 }
 
 // scans
 RC startScan (RM_TableData *rel, RM_ScanHandle *scan, Expr *cond){
+    return RC_OK;
 }
 RC next (RM_ScanHandle *scan, Record *record){
+    return RC_OK;
 }
 RC closeScan (RM_ScanHandle *scan){
+    return RC_OK;
 }
 
 // dealing with schemas
 int getRecordSize (Schema *schema){
+    return RC_OK;
 }
 
 //creat the schema. the struct of schema is denfined in tables.h
@@ -68,16 +89,22 @@ Schema *createSchema (int numAttr, char **attrNames, DataType *dataTypes, int *t
     return  newSchame;
 }
 RC freeSchema (Schema *schema){
+    return RC_OK;
 }
 
 // dealing with records and attribute values
 RC createRecord (Record **record, Schema *schema){
+    return RC_OK;
 }
 RC freeRecord (Record *record){
+    return RC_OK;
 }
 RC getAttr (Record *record, Schema *schema, int attrNum, Value **value){
+    return RC_OK;
 }
 RC setAttr (Record *record, Schema *schema, int attrNum, Value *value){
+    return RC_OK;
 }
-
+/*
 #endif // RECORD_MGR_H
+ */
