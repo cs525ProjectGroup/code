@@ -25,9 +25,13 @@ RC createTable (char *name, Schema *schema){
     SM_FileHandle fh;
     openPageFile(name, &fh);
     SM_PageHandle space;
-    if(memcpy(&space,&schema,sizeof(Schema))==0)
+    if(memcpy(&space,&schema,sizeof(Schema))==0)    //copy the schema matadata to the storage.
+    {
+        closePageFile(&fh);
         return RC_WRITE_FAILED;
+    }
     writeCurrentBlock(&fh,space);
+    closePageFile(&fh);
     return RC_OK;
     
     
@@ -35,6 +39,13 @@ RC createTable (char *name, Schema *schema){
     
 }
 RC openTable (RM_TableData *rel, char *name){
+    SM_FileHandle fh;
+    openPageFile(name, &fh);
+    int offset=0;
+    rel->name= name;
+    offset=+sizeof(rel->name);
+    rel->schema=(Schema *)(fh.mgmtInfo+offset);
+    offset=+sizeof(rel->name);
     return RC_OK;
 }
 RC closeTable (RM_TableData *rel){
