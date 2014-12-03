@@ -77,13 +77,13 @@ main (void)
 {
   testName = "";
 
-  testInsertManyRecords();
-  testRecords();
-  testCreateTableAndInsert();
-  testUpdateTable();
-  testScans();
-  testScansTwo();
-  testMultipleScans();
+    testInsertManyRecords();
+    testRecords();
+    testCreateTableAndInsert();
+    testUpdateTable();
+ // testScans();
+//  testScansTwo();
+//  testMultipleScans();
 
   return 0;
 }

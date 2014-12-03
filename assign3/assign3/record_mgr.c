@@ -149,15 +149,47 @@ RC openTable (RM_TableData *rel, char *name){
     return RC_OK;
 }
 RC closeTable (RM_TableData *rel){
+    free(page);
     shutdownBufferPool(bm);
+    free(bm);
+    free(rel->schema->attrNames);
+    free(rel->schema->dataTypes);
+    free(rel->schema->keyAttrs);
+    free(rel->schema->typeLength);
+    free(rel->schema);
     
     return RC_OK;
 }
 RC deleteTable (char *name){
+    if(remove(name)!=0 )
+        return RC_FILE_NOT_FOUND;
+    else
+        return RC_OK;
     return RC_OK;
 }
 int getNumTuples (RM_TableData *rel){
-    return  0;
+    int count=0;
+    int offset=0;
+    char * temp;                    //a temp pointer to point the page content.
+    for (int i =1; i<fh.totalNumPages; i++) {
+        pinPage(bm, page,i);
+        temp=page->data;
+        if(*(bool*)temp==true)
+            count+=numSlots;
+        else
+        {
+            offset=sizeof(bool);   // skip the first bool space which is used to tell whether the page is full
+            for(int j = 0 ;j<numSlots;j++)
+            {
+                if(*((bool *)(temp+offset))==true)
+                    count+=1;
+                offset=offset+sizeof(bool);
+            }
+        }
+        unpinPage(bm, page);      //if the page is full pin next page
+    }
+    return count;
+    
 }
 
 void calPageHeader (Schema *schema )
@@ -183,7 +215,7 @@ RC insertRecord (RM_TableData *rel, Record *record){
         pinPage(bm, page, currentPage);
     }
     offset+=sizeof(bool)+count*sizeof(bool);                   // skip the first bool space to locate the address
-    *((bool *)(page->data+offset))=true;           // set the slot's representive bool to be full
+    *((bool *)(page->data+offset))=true;           // set the slot's representive bool to be full(true)
     if(count>=numSlots)
         return EXIT_FAILURE;
     if(count==numSlots-1)                           //if this is the last slot in the page. set the page to be full.
@@ -359,16 +391,16 @@ RC setAttr (Record *record, Schema *schema, int attrNum, Value *value){
     offset_attr+=sizeof(bool)+schema->numAttr*sizeof(bool);
     switch (value->dt) {
         case DT_BOOL:
-            memcpy(slot+offset_attr, &(value->v.boolV), schema->typeLength[attrNum]);
+            memcpy(slot+offset_attr, &(value->v.boolV), sizeof(bool));
             break;
         case DT_FLOAT:
-            memcpy(slot+offset_attr, &(value->v.floatV), schema->typeLength[attrNum]);
+            memcpy(slot+offset_attr, &(value->v.floatV), sizeof(float));
             break;
         case DT_STRING:
             strcpy(slot+offset_attr,value->v.stringV);
             break;
         case DT_INT:
-            memcpy(slot+offset_attr, &(value->v.intV), schema->typeLength[attrNum]);
+            memcpy(slot+offset_attr, &(value->v.intV), sizeof(int));
             break;
     }
     
