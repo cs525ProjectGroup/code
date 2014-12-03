@@ -10,7 +10,7 @@
   do {									\
     Record *_lR = _l;                                                   \
     Record *_rR = _r;                                                   \
-    ASSERT_TRUE(memcmp(_lR->data,_rR->data,getRecordSize(schema)) == 0, message); \
+    ASSERT_TRUE(memcmp(_lR->data,_rR->data,getRecordSize(schema)) == 0, message);\
     int i;								\
     for(i = 0; i < schema->numAttr; i++)				\
       {									\
@@ -20,7 +20,7 @@
         getAttr(_rR, schema, i, &rVal);                                  \
 		lSer = serializeValue(lVal); \
 		rSer = serializeValue(rVal); \
-        ASSERT_EQUALS_STRING(lSer, rSer, "attr same");	\
+        ASSERT_EQUALS_STRING(lSer, rSer, "attr same");	 \
 		free(lVal); \
 		free(rVal); \
 		free(lSer); \
@@ -391,20 +391,22 @@ testInsertManyRecords(void)
     }
   TEST_CHECK(closeTable(table));
   TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_t"));
-
+    Record  *result;
   // retrieve records from the table and compare to expected final stage
   for(i = 0; i < numInserts; i++)
     {
       RID rid = rids[i];
       TEST_CHECK(getRecord(table, rid, r));
-      ASSERT_EQUALS_RECORDS(fromTestRecord(schema, realInserts[i]), r, schema, "compare records");
+        result=fromTestRecord(schema, realInserts[i]);
+      ASSERT_EQUALS_RECORDS(result, r, schema, "compare records");
     }
   
   r = fromTestRecord(schema, updates[0]);
   r->id = rids[randomRec];
   TEST_CHECK(updateRecord(table,r));
-  TEST_CHECK(getRecord(table, rids[randomRec], r)); 
-  ASSERT_EQUALS_RECORDS(fromTestRecord(schema, updates[0]), r, schema, "compare records");
+  TEST_CHECK(getRecord(table, rids[randomRec], r));
+    result=fromTestRecord(schema, updates[0]);
+  ASSERT_EQUALS_RECORDS(result, r, schema, "compare records");
    
   TEST_CHECK(closeTable(table));
   TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_t"));

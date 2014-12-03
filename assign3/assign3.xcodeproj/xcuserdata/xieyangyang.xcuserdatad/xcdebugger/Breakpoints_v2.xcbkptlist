@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "438299968.635792"
+            timestampString = "439290828.58122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "642"
-            endingLineNumber = "642"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
             landmarkName = "testSchema()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "438300296.697583"
+            timestampString = "439286715.130875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "351"
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "438300469.635601"
+            timestampString = "439290828.58122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "620"
-            endingLineNumber = "620"
+            startingLineNumber = "622"
+            endingLineNumber = "622"
             landmarkName = "testSchema()"
             landmarkType = "7">
          </BreakpointContent>
@@ -72,7 +72,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "438835025.663914"
+            timestampString = "439286715.130875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "380"
@@ -146,7 +146,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "439184637.269882"
+            timestampString = "439286715.130875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "376"
@@ -162,11 +162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "createTable()"
             landmarkType = "7">
          </BreakpointContent>
@@ -178,11 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "schemaToString()"
             landmarkType = "7">
          </BreakpointContent>
@@ -194,11 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "schemaToString()"
             landmarkType = "7">
          </BreakpointContent>
@@ -210,11 +210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "createTable()"
             landmarkType = "7">
          </BreakpointContent>
@@ -226,11 +226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "openTable()"
             landmarkType = "7">
          </BreakpointContent>
@@ -242,11 +242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "createTable()"
             landmarkType = "7">
          </BreakpointContent>
@@ -258,11 +258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "stringToSchema()"
             landmarkType = "7">
          </BreakpointContent>
@@ -274,11 +274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439259441.943733"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "stringToSchema()"
             landmarkType = "7">
          </BreakpointContent>
@@ -290,11 +290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "439236694.990206"
+            timestampString = "439290828.58122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "648"
-            endingLineNumber = "648"
+            startingLineNumber = "650"
+            endingLineNumber = "650"
             landmarkName = "fromTestRecord()"
             landmarkType = "7">
          </BreakpointContent>
@@ -306,7 +306,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "439237407.65938"
+            timestampString = "439286715.130875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "382"
@@ -322,11 +322,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439263620.274085"
+            timestampString = "439291225.615358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "setAttr()"
             landmarkType = "7">
          </BreakpointContent>
@@ -338,11 +338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439263620.274085"
+            timestampString = "439291225.615358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "createRecord()"
             landmarkType = "7">
          </BreakpointContent>
@@ -354,7 +354,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "439261926.036041"
+            timestampString = "439286715.130875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "378"
@@ -414,7 +414,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "439262269.191477"
+            timestampString = "439286715.130875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "389"
@@ -429,7 +429,7 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439262882.041447"
+                  timestampString = "439281922.029822"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "389"
@@ -443,7 +443,7 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439262882.041585"
+                  timestampString = "439281922.029952"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "389"
@@ -457,7 +457,7 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439262882.041676"
+                  timestampString = "439281922.03004"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "389"
@@ -474,7 +474,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "439263174.669096"
+            timestampString = "439286760.397004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "399"
@@ -489,7 +489,7 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439263636.103821"
+                  timestampString = "439287605.945292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "399"
@@ -503,7 +503,7 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439263636.104111"
+                  timestampString = "439287605.945503"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "399"
@@ -517,7 +517,7 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439263636.104286"
+                  timestampString = "439287605.945652"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "399"
@@ -534,11 +534,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/test_assign3_1.c"
-            timestampString = "439263647.187654"
+            timestampString = "439286760.397004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
             landmarkName = "testInsertManyRecords()"
             landmarkType = "7">
             <Locations>
@@ -549,12 +549,12 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439263650.434468"
+                  timestampString = "439288076.441735"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "400"
-                  endingLineNumber = "400"
-                  offsetFromSymbolStart = "1590">
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "1658">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -563,12 +563,12 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439263650.434667"
+                  timestampString = "439288076.441935"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "400"
-                  endingLineNumber = "400"
-                  offsetFromSymbolStart = "1602">
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "1892">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -577,26 +577,12 @@
                   symbolName = "testInsertManyRecords"
                   moduleName = "assign3"
                   urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439263650.434823"
+                  timestampString = "439288076.44209"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "400"
-                  endingLineNumber = "400"
-                  offsetFromSymbolStart = "1883">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "testInsertManyRecords"
-                  moduleName = "assign3"
-                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
-                  timestampString = "439263650.434971"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "400"
-                  endingLineNumber = "400"
-                  offsetFromSymbolStart = "1921">
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "1930">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -608,11 +594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439263857.096307"
+            timestampString = "439281657.437422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "createTable()"
             landmarkType = "7">
          </BreakpointContent>
@@ -624,11 +610,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439264070.29908"
+            timestampString = "439291225.615358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
             landmarkName = "setAttr()"
             landmarkType = "7">
          </BreakpointContent>
@@ -640,12 +626,442 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assign3/record_mgr.c"
-            timestampString = "439264667.160231"
+            timestampString = "439291225.615358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
             landmarkName = "setAttr()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/record_mgr.c"
+            timestampString = "439291225.615358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "setAttr()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439290828.58122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "667"
+            endingLineNumber = "667"
+            landmarkName = "testRecord()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439290828.58122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "671"
+            endingLineNumber = "671"
+            landmarkName = "testRecord()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/record_mgr.c"
+            timestampString = "439291225.615358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "getRecord()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439284707.481685"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439284742.374814"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/record_mgr.c"
+            timestampString = "439291225.615358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
+            landmarkName = "getAttr()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439286760.397004"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "testInsertManyRecords()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439286576.71941"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "testCreateTableAndInsert()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testCreateTableAndInsert"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439286591.028362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "1265">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testCreateTableAndInsert"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439286591.028477"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "1297">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testCreateTableAndInsert"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439286591.028568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "1313">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439286715.130875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "testCreateTableAndInsert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439286921.792415"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "testInsertManyRecords()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439290828.58122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "663"
+            endingLineNumber = "663"
+            landmarkName = "testRecord()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439287725.288089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "testInsertManyRecords()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/record_mgr.c"
+            timestampString = "439291225.615358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "getAttr()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439288590.623759"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "testInsertManyRecords()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439289464.167691"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "testInsertManyRecords()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testInsertManyRecords"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439290888.738919"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "406"
+                  endingLineNumber = "406"
+                  offsetFromSymbolStart = "2422">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testInsertManyRecords"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439290888.739123"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "406"
+                  endingLineNumber = "406"
+                  offsetFromSymbolStart = "2447">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testInsertManyRecords"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439290888.73943"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "406"
+                  endingLineNumber = "406"
+                  offsetFromSymbolStart = "2463">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439290828.58122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "testInsertManyRecords()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testInsertManyRecords"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439290888.760109"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "407"
+                  endingLineNumber = "407"
+                  offsetFromSymbolStart = "2564">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testInsertManyRecords"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439290888.760472"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "407"
+                  endingLineNumber = "407"
+                  offsetFromSymbolStart = "2569">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testInsertManyRecords"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439290888.76065"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "407"
+                  endingLineNumber = "407"
+                  offsetFromSymbolStart = "2612">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testInsertManyRecords"
+                  moduleName = "assign3"
+                  urlString = "file:///Users/xieyangyang/Documents/course/cs525/project/assign3/assign3/test_assign3_1.c"
+                  timestampString = "439290888.760754"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "407"
+                  endingLineNumber = "407"
+                  offsetFromSymbolStart = "2628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assign3/test_assign3_1.c"
+            timestampString = "439290828.58122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
+            landmarkName = "testInsertManyRecords()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

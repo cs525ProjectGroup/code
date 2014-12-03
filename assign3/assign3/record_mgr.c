@@ -23,6 +23,9 @@ BM_BufferPool *bm;
 //prototype
 static void calSlotSize(Schema *schema);
 static void calPageHeader (Schema *schema );
+static RC attrOffset (Schema *schema, int attrNum, int *result);
+
+
 // this function is to transfer the schema struct to string space
 SM_PageHandle schemaToString(Schema *schema)
 {
@@ -193,6 +196,8 @@ RC insertRecord (RM_TableData *rel, Record *record){
     memcpy(page->data+offset,&record->id.slot,sizeof(int));
     offset+=sizeof(int);
     memcpy(page->data+offset,record->data,slotSize-sizeof(RID));        //copy the content to the memory of page.
+    if((page->data+offset-2*sizeof(int)+slotSize)!=(page->data+(count+1)*slotSize+numPageHeader))   //test its space allocation correctness
+        return EXIT_FAILURE;
     count++;
     markDirty(bm, page);
     unpinPage(bm, page);
@@ -202,12 +207,19 @@ RC deleteRecord (RM_TableData *rel, RID id){
     return RC_OK;
 }
 RC updateRecord (RM_TableData *rel, Record *record){
+    int offset=0;
+    pinPage(bm, page, record->id.page);
+    offset=numPageHeader+record->id.slot*slotSize;
+    offset+=sizeof(RID);
+    memcpy(page->data+offset,record->data, slotSize-sizeof(RID));
+    markDirty(bm, page);
+    unpinPage(bm, page);
     return RC_OK;
 }
 RC getRecord (RM_TableData *rel, RID id, Record *record){
     int offset=0;
     pinPage(bm, page, id.page);
-    offset=numPageHeader+id.slot*slotSize;
+    offset=numPageHeader+id.slot*slotSize+sizeof(RID);
     record->id=id;
     record->data=page->data+offset;
     unpinPage(bm, page);
@@ -227,7 +239,7 @@ RC closeScan (RM_ScanHandle *scan){
 
 // dealing with schemas
 int getRecordSize (Schema *schema){
-    return slotSize;
+    return slotSize-sizeof(RID);
 }
 
 //create the schema. the struct of schema is denfined in tables.h
@@ -263,15 +275,16 @@ RC freeSchema (Schema *schema){
 void calSlotSize(Schema *schema)
 {
     int length=0;
-    for(int i = 0 ; i<schema->numAttr;i++)
-        length+=schema->typeLength[i];
+    attrOffset(schema,schema->numAttr, &length);
     length+=sizeof(bool)+sizeof(bool)*schema->numAttr;      //a serial of bites to record whether the tuple and attributes are empty or not
     slotSize=length+sizeof(RID);
 
 }
 RC createRecord (Record **record, Schema *schema){
     Record* a_record= (Record *)malloc(sizeof(Record));     //allocate the space to store the record struct
-    a_record->data=(char*)calloc(slotSize-sizeof(RID), sizeof(char));
+    a_record->id.page=0;
+    a_record->id.page=0;
+    a_record->data=(char*)calloc(slotSize, sizeof(char));
     *record=a_record;
    return RC_OK;
 }
@@ -308,6 +321,30 @@ RC freeRecord (Record *record){
     return RC_OK;
 }
 RC getAttr (Record *record, Schema *schema, int attrNum, Value **value){
+    int offset = 0;
+    char * slot =record->data;
+    attrOffset(schema, attrNum, &offset);                   //calculate the offset of the attribute in the tuple.
+    offset+=sizeof(bool)+sizeof(bool)*schema->numAttr;      //skip the header of the slot.
+    Value* a_value= (Value *)malloc(sizeof(Value));
+    a_value->dt=schema->dataTypes[attrNum];
+    switch (a_value->dt) {
+        case DT_BOOL:
+            
+            memcpy(&(a_value->v.boolV),slot+offset,sizeof(bool));
+            break;
+        case DT_FLOAT:
+            memcpy( &(a_value->v.floatV),slot+offset,sizeof(float));
+            break;
+        case DT_STRING:
+            a_value->v.stringV=calloc(schema->typeLength[attrNum]+1, sizeof(char));
+           memcpy( a_value->v.stringV,slot+offset,schema->typeLength[attrNum]);
+            break;
+        case DT_INT:
+            memcpy(&(a_value->v.intV),slot+offset,sizeof(int));
+            break;
+    }
+    
+    *value=a_value;
     return RC_OK;
 }
 RC setAttr (Record *record, Schema *schema, int attrNum, Value *value){
