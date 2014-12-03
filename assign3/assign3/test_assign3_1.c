@@ -78,12 +78,12 @@ main (void)
   testName = "";
 
   testInsertManyRecords();
-/*testRecords();
+  testRecords();
   testCreateTableAndInsert();
   testUpdateTable();
   testScans();
   testScansTwo();
-  testMultipleScans();*/
+  testMultipleScans();
 
   return 0;
 }
@@ -377,8 +377,8 @@ testInsertManyRecords(void)
   rids = (RID *) malloc(sizeof(RID) * numInserts);
   
   TEST_CHECK(initRecordManager(NULL));
-  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_r",schema));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_t",schema));
+  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_t"));
   
   // insert rows into table
   for(i = 0; i < numInserts; i++)
@@ -390,7 +390,7 @@ testInsertManyRecords(void)
       rids[i] = r->id;
     }
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(openTable(table, "test_table_t"));
+  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_t"));
 
   // retrieve records from the table and compare to expected final stage
   for(i = 0; i < numInserts; i++)
@@ -407,7 +407,7 @@ testInsertManyRecords(void)
   ASSERT_EQUALS_RECORDS(fromTestRecord(schema, updates[0]), r, schema, "compare records");
    
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(deleteTable("test_table_t"));
+  TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_t"));
   TEST_CHECK(shutdownRecordManager());
 
   freeRecord(r);

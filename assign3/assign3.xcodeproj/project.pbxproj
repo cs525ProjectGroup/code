@@ -11,11 +11,11 @@
 		E8A5C7B11A1FE31F003696D6 /* dberror.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7A41A1FE31F003696D6 /* dberror.c */; };
 		E8A5C7B21A1FE31F003696D6 /* expr.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7A71A1FE31F003696D6 /* expr.c */; };
 		E8A5C7B31A1FE31F003696D6 /* rm_serializer.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7AA1A1FE31F003696D6 /* rm_serializer.c */; };
-		E8A5C7B41A1FE31F003696D6 /* test_assign3_1.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7AD1A1FE31F003696D6 /* test_assign3_1.c */; };
 		E8A5C7B51A1FE31F003696D6 /* test_expr.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7AE1A1FE31F003696D6 /* test_expr.c */; };
 		E8A5C7B71A1FE4DF003696D6 /* record_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7B61A1FE4DF003696D6 /* record_mgr.c */; };
 		E8A5C7B91A1FE6E5003696D6 /* buffer_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7B81A1FE6E5003696D6 /* buffer_mgr.c */; };
 		E8A5C7BB1A1FE70A003696D6 /* storage_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = E8A5C7BA1A1FE70A003696D6 /* storage_mgr.c */; };
+		E8D8BF701A2E5AAB0002BB37 /* test_assign3_1.c in Sources */ = {isa = PBXBuildFile; fileRef = E8D8BF6F1A2E5AAB0002BB37 /* test_assign3_1.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,13 +43,13 @@
 		E8A5C7AA1A1FE31F003696D6 /* rm_serializer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rm_serializer.c; sourceTree = "<group>"; };
 		E8A5C7AB1A1FE31F003696D6 /* storage_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = storage_mgr.h; sourceTree = "<group>"; };
 		E8A5C7AC1A1FE31F003696D6 /* tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tables.h; sourceTree = "<group>"; };
-		E8A5C7AD1A1FE31F003696D6 /* test_assign3_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test_assign3_1.c; sourceTree = "<group>"; };
 		E8A5C7AE1A1FE31F003696D6 /* test_expr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test_expr.c; sourceTree = "<group>"; };
 		E8A5C7AF1A1FE31F003696D6 /* test_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test_helper.h; sourceTree = "<group>"; };
 		E8A5C7B61A1FE4DF003696D6 /* record_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = record_mgr.c; sourceTree = "<group>"; };
 		E8A5C7B81A1FE6E5003696D6 /* buffer_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer_mgr.c; sourceTree = "<group>"; };
 		E8A5C7BA1A1FE70A003696D6 /* storage_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = storage_mgr.c; sourceTree = "<group>"; };
 		E8A5C7BC1A1FE88D003696D6 /* dberror.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dberror.h; sourceTree = "<group>"; };
+		E8D8BF6F1A2E5AAB0002BB37 /* test_assign3_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test_assign3_1.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,7 @@
 				E8A5C7BA1A1FE70A003696D6 /* storage_mgr.c */,
 				E8A5C7A21A1FE31F003696D6 /* buffer_mgr_stat.h */,
 				E8A5C7A11A1FE31F003696D6 /* buffer_mgr_stat.c */,
+				E8D8BF6F1A2E5AAB0002BB37 /* test_assign3_1.c */,
 				E8A5C7A31A1FE31F003696D6 /* buffer_mgr.h */,
 				E8A5C7B81A1FE6E5003696D6 /* buffer_mgr.c */,
 				E8A5C7A91A1FE31F003696D6 /* record_mgr.h */,
@@ -97,7 +98,6 @@
 				E8A5C7A81A1FE31F003696D6 /* expr.h */,
 				E8A5C7AA1A1FE31F003696D6 /* rm_serializer.c */,
 				E8A5C7AC1A1FE31F003696D6 /* tables.h */,
-				E8A5C7AD1A1FE31F003696D6 /* test_assign3_1.c */,
 				E8A5C7AE1A1FE31F003696D6 /* test_expr.c */,
 				E8A5C7AF1A1FE31F003696D6 /* test_helper.h */,
 				E8A5C7981A1FE30E003696D6 /* Products */,
@@ -166,8 +166,8 @@
 				E8A5C7B01A1FE31F003696D6 /* buffer_mgr_stat.c in Sources */,
 				E8A5C7BB1A1FE70A003696D6 /* storage_mgr.c in Sources */,
 				E8A5C7B31A1FE31F003696D6 /* rm_serializer.c in Sources */,
+				E8D8BF701A2E5AAB0002BB37 /* test_assign3_1.c in Sources */,
 				E8A5C7B91A1FE6E5003696D6 /* buffer_mgr.c in Sources */,
-				E8A5C7B41A1FE31F003696D6 /* test_assign3_1.c in Sources */,
 				E8A5C7B11A1FE31F003696D6 /* dberror.c in Sources */,
 				E8A5C7B21A1FE31F003696D6 /* expr.c in Sources */,
 			);
