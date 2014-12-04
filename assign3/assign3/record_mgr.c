@@ -313,7 +313,7 @@ RC next (RM_ScanHandle *scan, Record *record){
             return RC_RM_NO_MORE_TUPLES;
         getRecord(scan->rel, tmp_record->id,tmp_record);    //get the record and store it in the tmp_record
         evalExpr(tmp_record, scan->rel->schema, condition, value);  //tell whether satisfy the condition and store the bool into value.
-        if((*value)->dt!=DT_BOOL)                           // check the value type is bool.
+        if((*value)->dt!=DT_BOOL)                           // check whether the value type is boolean.
             return EXIT_FAILURE;
         if((*value)->v.boolV)
             break;                                      //if has found the tuple satisfied the requirement.break
@@ -330,7 +330,7 @@ RC closeScan (RM_ScanHandle *scan){
 }
 
 // dealing with schemas
-int getRecordSize (Schema *schema){
+int getRecordSize (Schema *schema){                                     //get the record's size
     return slotSize-sizeof(RID);
 }
 
@@ -338,7 +338,7 @@ int getRecordSize (Schema *schema){
 Schema *createSchema (int numAttr, char **attrNames, DataType *dataTypes, int *typeLength, int keySize, int *keys){
     Schema *newSchame;
     newSchame=(Schema *)malloc(sizeof(Schema));
-    newSchame->numAttr=numAttr;
+    newSchame->numAttr=numAttr;                                         //assign the attributes to the struct schema.
     newSchame->attrNames=attrNames;
     newSchame->dataTypes=dataTypes;
     newSchame->typeLength=typeLength;
@@ -443,13 +443,13 @@ RC setAttr (Record *record, Schema *schema, int attrNum, Value *value){
     int offset=0;
     int offset_attr=0;
     char *slot=record->data;
-    *((bool *)(slot+offset))=true;
+    *((bool *)(slot+offset))=true;                                          //set the first bool to be true which means this slot is not empty
     offset=sizeof(bool)+attrNum*sizeof(bool);
-    *((bool *)(slot+offset))=true;
+    *((bool *)(slot+offset))=true;                                             //set the its according attribute's bool to be true.(not empty)
     if (attrOffset(schema, attrNum,&offset_attr)!=0)
-        return EXIT_FAILURE;
+        return EXIT_FAILURE;                                                //get the offset of the attributes in the tuple.
     offset_attr+=sizeof(bool)+schema->numAttr*sizeof(bool);
-    switch (value->dt) {
+    switch (value->dt) {                                                    //according to its different type to cpy the content to the slot
         case DT_BOOL:
             memcpy(slot+offset_attr, &(value->v.boolV), sizeof(bool));
             break;
