@@ -10,7 +10,7 @@
   do {									\
     Record *_lR = _l;                                                   \
     Record *_rR = _r;                                                   \
-    ASSERT_TRUE(memcmp(_lR->data,_rR->data,getRecordSize(schema)) == 0, message);\
+    ASSERT_TRUE(memcmp(_lR->data,_rR->data,getRecordSize(schema)) == 0, message); \
     int i;								\
     for(i = 0; i < schema->numAttr; i++)				\
       {									\
@@ -20,7 +20,7 @@
         getAttr(_rR, schema, i, &rVal);                                  \
 		lSer = serializeValue(lVal); \
 		rSer = serializeValue(rVal); \
-        ASSERT_EQUALS_STRING(lSer, rSer, "attr same");	 \
+        ASSERT_EQUALS_STRING(lSer, rSer, "attr same");	\
 		free(lVal); \
 		free(rVal); \
 		free(lSer); \
@@ -77,13 +77,13 @@ main (void)
 {
   testName = "";
 
- testInsertManyRecords();
+  testInsertManyRecords();
   testRecords();
-    testCreateTableAndInsert();
+  testCreateTableAndInsert();
   testUpdateTable();
-testScans();
- testScansTwo();
-testMultipleScans();
+  testScans();
+  testScansTwo();
+  testMultipleScans();
 
   return 0;
 }
@@ -151,8 +151,8 @@ testCreateTableAndInsert (void)
   rids = (RID *) malloc(sizeof(RID) * numInserts);
   
   TEST_CHECK(initRecordManager(NULL));
-  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_r",schema));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(createTable("test_table_r",schema));
+  TEST_CHECK(openTable(table, "test_table_r"));
   
   // insert rows into table
   for(i = 0; i < numInserts; i++)
@@ -163,7 +163,7 @@ testCreateTableAndInsert (void)
     }
 
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(openTable(table, "test_table_r"));
 
   // randomly retrieve records from the table and compare to inserted ones
   for(i = 0; i < 1000; i++)
@@ -175,7 +175,7 @@ testCreateTableAndInsert (void)
     }
   
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(deleteTable("test_table_r"));
   TEST_CHECK(shutdownRecordManager());
 
   free(rids);
@@ -212,8 +212,8 @@ testMultipleScans(void)
   int rc,rc2;
   
   TEST_CHECK(initRecordManager(NULL));
-  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_r",schema));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(createTable("test_table_r",schema));
+  TEST_CHECK(openTable(table, "test_table_r"));
   
   // insert rows into table
   for(i = 0; i < numInserts; i++)
@@ -251,7 +251,7 @@ testMultipleScans(void)
   TEST_CHECK(closeScan(sc2));
  
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(deleteTable("test_table_r"));
   TEST_CHECK(shutdownRecordManager());
 
   free(rids);
@@ -303,8 +303,8 @@ testUpdateTable (void)
   rids = (RID *) malloc(sizeof(RID) * numInserts);
   
   TEST_CHECK(initRecordManager(NULL));
-  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_r",schema));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(createTable("test_table_r",schema));
+  TEST_CHECK(openTable(table, "test_table_r"));
   
   // insert rows into table
   for(i = 0; i < numInserts; i++)
@@ -329,7 +329,7 @@ testUpdateTable (void)
     }
 
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(openTable(table, "test_table_r"));
 
   // retrieve records from the table and compare to expected final stage
   for(i = 0; i < numFinal; i++)
@@ -340,7 +340,7 @@ testUpdateTable (void)
     }
   
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(deleteTable("test_table_r"));
   TEST_CHECK(shutdownRecordManager());
 
   free(table);
@@ -377,8 +377,8 @@ testInsertManyRecords(void)
   rids = (RID *) malloc(sizeof(RID) * numInserts);
   
   TEST_CHECK(initRecordManager(NULL));
-  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_t",schema));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_t"));
+  TEST_CHECK(createTable("test_table_t",schema));
+  TEST_CHECK(openTable(table, "test_table_t"));
   
   // insert rows into table
   for(i = 0; i < numInserts; i++)
@@ -390,26 +390,24 @@ testInsertManyRecords(void)
       rids[i] = r->id;
     }
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_t"));
-    Record  *result;
+  TEST_CHECK(openTable(table, "test_table_t"));
+
   // retrieve records from the table and compare to expected final stage
   for(i = 0; i < numInserts; i++)
     {
       RID rid = rids[i];
       TEST_CHECK(getRecord(table, rid, r));
-        result=fromTestRecord(schema, realInserts[i]);
-      ASSERT_EQUALS_RECORDS(result, r, schema, "compare records");
+      ASSERT_EQUALS_RECORDS(fromTestRecord(schema, realInserts[i]), r, schema, "compare records");
     }
   
   r = fromTestRecord(schema, updates[0]);
   r->id = rids[randomRec];
   TEST_CHECK(updateRecord(table,r));
-  TEST_CHECK(getRecord(table, rids[randomRec], r));
-    result=fromTestRecord(schema, updates[0]);
-  ASSERT_EQUALS_RECORDS(result, r, schema, "compare records");
+  TEST_CHECK(getRecord(table, rids[randomRec], r)); 
+  ASSERT_EQUALS_RECORDS(fromTestRecord(schema, updates[0]), r, schema, "compare records");
    
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_t"));
+  TEST_CHECK(deleteTable("test_table_t"));
   TEST_CHECK(shutdownRecordManager());
 
   freeRecord(r);
@@ -453,8 +451,8 @@ void testScans (void)
   rids = (RID *) malloc(sizeof(RID) * numInserts);
   
   TEST_CHECK(initRecordManager(NULL));
-  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_r",schema));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(createTable("test_table_r",schema));
+  TEST_CHECK(openTable(table, "test_table_r"));
   
   // insert rows into table
   for(i = 0; i < numInserts; i++)
@@ -465,7 +463,7 @@ void testScans (void)
   }
 
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(openTable(table, "test_table_r"));
 
   // run some scans
   MAKE_CONS(left, stringToValue("i1"));
@@ -477,8 +475,7 @@ void testScans (void)
   {
       for(i = 0; i < scanSizeOne; i++)
       {
-          char * result =fromTestRecord(schema, scanOneResult[i])->data;
-          if (memcmp(result,r->data,getRecordSize(schema)) == 0)
+          if (memcmp(fromTestRecord(schema, scanOneResult[i])->data,r->data,getRecordSize(schema)) == 0)
               foundScan[i] = TRUE;
       }
   }
@@ -490,7 +487,7 @@ void testScans (void)
   
   // clean up
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(deleteTable("test_table_r"));
   TEST_CHECK(shutdownRecordManager());
 
   free(table);
@@ -540,8 +537,8 @@ void testScansTwo (void)
   rids = (RID *) malloc(sizeof(RID) * numInserts);
   
   TEST_CHECK(initRecordManager(NULL));
-  TEST_CHECK(createTable("//Users//xieyangyang//Desktop//test_table_r",schema));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(createTable("test_table_r",schema));
+  TEST_CHECK(openTable(table, "test_table_r"));
   
   // insert rows into table
   for(i = 0; i < numInserts; i++)
@@ -552,7 +549,7 @@ void testScansTwo (void)
   }
 
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(openTable(table, "//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(openTable(table, "test_table_r"));
 
   // Select 1 record with INT in condition a=2.
   MAKE_CONS(left, stringToValue("i2"));
@@ -608,7 +605,7 @@ void testScansTwo (void)
 
   // clean up
   TEST_CHECK(closeTable(table));
-  TEST_CHECK(deleteTable("//Users//xieyangyang//Desktop//test_table_r"));
+  TEST_CHECK(deleteTable("test_table_r"));
   TEST_CHECK(shutdownRecordManager());
 
   freeRecord(r);

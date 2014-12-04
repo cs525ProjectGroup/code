@@ -30,7 +30,7 @@ static void calSlotSize(Schema *schema);
 static void calPageHeader (Schema *schema );
 static RC attrOffset (Schema *schema, int attrNum, int *result);
 
-typedef struct recordInfo
+typedef struct recordInfo                       // here I define a struct to encapsulte the record address and counter number
 {
     Record *record;
     int count;
@@ -83,7 +83,7 @@ Schema *stringToSchema(SM_PageHandle ph)
     schema->numAttr= *((int *)(ph+offset));
     offset+=sizeof(int);
     schema->attrNames=(char **)malloc(sizeof(char*)*schema->numAttr);
-    for(int i =0;i<schema->numAttr;i++)                 //assign the attributes name to the **attrName
+    for(int i =0;i<schema->numAttr;i++)                                     //assign the attributes name to the **attrName
     {
         buff[255]="";
         count=0;
@@ -102,14 +102,14 @@ Schema *stringToSchema(SM_PageHandle ph)
         schema->dataTypes[i]=*((int *)(ph+offset));
         offset+=sizeof(int);
     }
-    schema->typeLength=(int *)malloc(sizeof(int *)*schema->numAttr); //allocate the space to store the type length
+    schema->typeLength=(int *)malloc(sizeof(int *)*schema->numAttr);        //allocate the space to store the type length
     for(int i =0;i<schema->numAttr;i++)
     {
         schema->typeLength[i]=*((int *)(ph+offset));
                 offset+=sizeof(int);
     }
     schema->keyAttrs=(int *)malloc(sizeof(int *)*schema->numAttr);
-    for(int i =0;i<schema->numAttr;i++)             //allocate the space to store the number attributes
+    for(int i =0;i<schema->numAttr;i++)                                       //allocate the space to store the number attributes
     {
         schema->keyAttrs[i]=*((int *)(ph+offset));
         offset+=sizeof(int);
@@ -181,7 +181,7 @@ RC deleteTable (char *name){
 int getNumTuples (RM_TableData *rel){
     int count=0;
     int offset=0;
-    char * temp;                    //a temp pointer to point the page content.
+    char * temp;                                                            //a temp pointer to point the page content.
     for (int i =1; i<=currentPage; i++) {
         pinPage(bm, page,i);
         temp=page->data;
@@ -189,7 +189,7 @@ int getNumTuples (RM_TableData *rel){
             count+=numSlots;
         else
         {
-            offset=sizeof(bool);   // skip the first bool space which is used to tell whether the page is full
+            offset=sizeof(bool);                                    // skip the first bool space which is used to tell whether the page is full
             for(int j = 0 ;j<numSlots;j++)
             {
                 if(*((bool *)(temp+offset))==true)
@@ -326,7 +326,6 @@ RC next (RM_ScanHandle *scan, Record *record){
 }
 RC closeScan (RM_ScanHandle *scan){
     free(scan->mgmtData);
-
     return RC_OK;
 }
 
