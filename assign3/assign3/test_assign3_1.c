@@ -77,13 +77,13 @@ main (void)
 {
   testName = "";
 
-    testInsertManyRecords();
-    testRecords();
+ testInsertManyRecords();
+  testRecords();
     testCreateTableAndInsert();
-    testUpdateTable();
- // testScans();
-//  testScansTwo();
-//  testMultipleScans();
+  testUpdateTable();
+testScans();
+ testScansTwo();
+testMultipleScans();
 
   return 0;
 }
@@ -477,7 +477,8 @@ void testScans (void)
   {
       for(i = 0; i < scanSizeOne; i++)
       {
-          if (memcmp(fromTestRecord(schema, scanOneResult[i])->data,r->data,getRecordSize(schema)) == 0)
+          char * result =fromTestRecord(schema, scanOneResult[i])->data;
+          if (memcmp(result,r->data,getRecordSize(schema)) == 0)
               foundScan[i] = TRUE;
       }
   }

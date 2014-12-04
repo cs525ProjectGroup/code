@@ -5,18 +5,23 @@
 //  Created by xieyangyang on 11/21/14.
 //  Copyright (c) 2014 xieyangyang. All rights reserved.
 //
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "record_mgr.h"
 #include "tables.h"
 #include "buffer_mgr.h"
 #include "storage_mgr.h"
-
+#include "expr.h"
+int tuples =0;
 int numSlots=0;
 int currentPage=0;
 int numPageHeader=0;
 int slotSize=0;
 int count=0;
+
+
+Expr * condition;
 BM_PageHandle *page;
 SM_FileHandle fh;
 BM_BufferPool *bm;
@@ -24,6 +29,12 @@ BM_BufferPool *bm;
 static void calSlotSize(Schema *schema);
 static void calPageHeader (Schema *schema );
 static RC attrOffset (Schema *schema, int attrNum, int *result);
+
+typedef struct recordInfo
+{
+    Record *record;
+    int count;
+}recordInfo;
 
 
 // this function is to transfer the schema struct to string space
@@ -171,7 +182,7 @@ int getNumTuples (RM_TableData *rel){
     int count=0;
     int offset=0;
     char * temp;                    //a temp pointer to point the page content.
-    for (int i =1; i<fh.totalNumPages; i++) {
+    for (int i =1; i<=currentPage; i++) {
         pinPage(bm, page,i);
         temp=page->data;
         if(*(bool*)temp==true)
@@ -258,14 +269,64 @@ RC getRecord (RM_TableData *rel, RID id, Record *record){
     return RC_OK;
 }
 
+
 // scans
 RC startScan (RM_TableData *rel, RM_ScanHandle *scan, Expr *cond){
+    tuples=getNumTuples(scan->rel);
+    count=0;
+    condition=cond;
+    scan->rel=rel;
+    recordInfo *a_info=(recordInfo *)malloc(sizeof(recordInfo));
+    Record *record=malloc(sizeof(Record));
+    record->data=calloc(slotSize, sizeof(char));            //initialize the record to store the first tuple in the table
+    record->id.page=1;
+    record->id.slot=-1;
+    a_info->count=0;
+    a_info->record=record;
+    scan->mgmtData=a_info;
     return RC_OK;
 }
+    
+    
 RC next (RM_ScanHandle *scan, Record *record){
+
+    Record *tmp_record = ((recordInfo *)scan->mgmtData)->record;                //initialize a temp record to store the each internal record.
+    tmp_record->data=calloc(slotSize, sizeof(char));
+    Value **value;                                              //allocate the value space and set the bool value to be -1.
+    value=malloc(sizeof(**value));
+    (*value)=malloc(sizeof(value));
+    (*value)->dt=DT_BOOL;
+    (*value)->v.boolV=-1;
+    while(true)
+    {
+        if(tmp_record->id.slot==numSlots-1)                        //if the previous tuple is the last one in the page.
+        {
+            tmp_record->id.page++;                                  //change the page and slot.
+            tmp_record->id.slot=0;                                  //set to be 0
+        }
+        else
+        {
+            tmp_record->id.slot++;                          //if not , just add on step of slot.
+        }
+        ((recordInfo *)scan->mgmtData)->count++;                                            //every time move the slot will increase the counter.
+        if(((recordInfo *)scan->mgmtData)->count>tuples)                                  //if has been scanned all the tuples return no more sign
+            return RC_RM_NO_MORE_TUPLES;
+        getRecord(scan->rel, tmp_record->id,tmp_record);    //get the record and store it in the tmp_record
+        evalExpr(tmp_record, scan->rel->schema, condition, value);  //tell whether satisfy the condition and store the bool into value.
+        if((*value)->dt!=DT_BOOL)                           // check the value type is bool.
+            return EXIT_FAILURE;
+        if((*value)->v.boolV)
+            break;                                      //if has found the tuple satisfied the requirement.break
+
+    }
+    record->id.page=tmp_record->id.page;
+    record->id.slot=tmp_record->id.slot;
+    memcpy(record->data,tmp_record->data,slotSize);
     return RC_OK;
 }
 RC closeScan (RM_ScanHandle *scan){
+    free(scan->mgmtData);
+
     return RC_OK;
 }
 
